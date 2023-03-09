@@ -2,13 +2,14 @@
 
 // Path of the directory to be zipped
 // $dirPath = '/home/projects/domains/golive-portal.projects.ceninf.com/';
-$dirPath = '/home/projects/domains/golive-reskin.projects.ceninf.com/';
+$dirPath = getcwd();
 // Path of output zip file
 // $zipPath = '/home/projects/domains/golive-portal.projects.ceninf.com/public_html/archive-' . time() . '.zip';
-$zipPath = '/home/projects/domains/golive-reskin.projects.ceninf.com/public_html/archive-' . time() . '.zip';
+$zipPath = getcwd() . '/archive-' . time() . '.zip';
 
-echo (getcwd());
-class ZipArchiver {
+// echo (getcwd());
+class ZipArchiver
+{
 
    /**
     * Zip a folder (including itself).
@@ -83,7 +84,7 @@ $zipper = new ZipArchiver;
 $zip = $zipper->zipDir($dirPath, $zipPath);
 
 if ($zip) {
-  echo 'ZIP archive created successfully.';
+   echo 'ZIP archive created successfully.';
 } else {
-  echo 'Failed to create ZIP.';
+   echo 'Failed to create ZIP.';
 }
